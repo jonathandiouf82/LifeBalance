@@ -7,6 +7,9 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from "@nestjs/config";
 import { DataSource } from "typeorm";
 import { DbModule } from "./db/db.module";
+import { PowensService } from './powens/powens.service';
+import { PowensController } from './powens/powens.controller';
+import { PowensModule } from "./powens/powens.module";
 
 @Module({
   imports: [ConfigModule.forRoot(),
@@ -14,9 +17,10 @@ import { DbModule } from "./db/db.module";
             ImportDataModule,
             OperationsModule,
             UserModule,
-            ImportDataModule],
+            ImportDataModule,
+            PowensModule],
   providers: [AppService],
-  controllers: [AppController],
+  controllers: [AppController, PowensController],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}
