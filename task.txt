@@ -1,0 +1,5 @@
+Integrer Chart.js
+CRUD API
+Auth
+Transponer CHATGPT to file
+Trouver designer

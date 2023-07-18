@@ -1,0 +1,20 @@
+Plan de projet
+Business Plan
+User Story(Besoin Client)(Social)
+SWOT
+Plan qualité
+Sécurité RGPD
+Mail
+Gant
+Concurrence
+Charte Graphique
+Maquette
+
+Architecture
+Serveur
+Plan BDD
+Specs Fonctionelles
+Specs Non-fonctionelles
+
+Avoir des objectifs d'epargne
+Calcul rapide pour les epargne
