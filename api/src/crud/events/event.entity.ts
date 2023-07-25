@@ -1,8 +1,9 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import { User } from "../users/user.entity";
+import {Task} from "../tasks/task.entity";
 
 @Entity()
-export class Event {
+export class TaskEvent {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -17,4 +18,7 @@ export class Event {
 
   @ManyToOne(() => User, (user) => user.tasks)
   user: User;
+
+  @OneToOne(() => Task, (task) => task.event)
+  task: Task;
 }

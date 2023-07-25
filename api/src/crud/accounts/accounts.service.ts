@@ -3,7 +3,6 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Account } from "../accounts/account.entity";
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { User } from "../users/user.entity";
-import { Operation } from "../operations/operations.entity";
 
 @Injectable()
 export class AccountsService {

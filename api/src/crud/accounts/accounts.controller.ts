@@ -4,7 +4,9 @@ import { DeleteResult, UpdateResult } from "typeorm";
 import { AccountsService } from "../accounts/accounts.service";
 import { UsersService } from "../users/users.service";
 import { Account } from "../accounts/account.entity";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('accounts')
 @Controller('accounts')
 export class AccountsController {
   constructor(private accountService: AccountsService,

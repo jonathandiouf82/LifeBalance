@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from "@nestjs/typeorm";
-import { Event } from './event.entity';
+import { TaskEvent } from './event.entity';
 import { DeleteResult, Repository, UpdateResult } from "typeorm";
 import { Task } from "../tasks/task.entity";
 
@@ -8,27 +8,27 @@ import { Task } from "../tasks/task.entity";
 export class EventsService {
 
   constructor(
-    @InjectRepository(Event)
-    private eventRepository: Repository<Event>
+    @InjectRepository(TaskEvent)
+    private eventRepository: Repository<TaskEvent>
   ) {}
 
-  async findAll(): Promise<Event[]> {
+  async findAll(): Promise<TaskEvent[]> {
     return this.eventRepository.find();
   }
 
-  async findAllByTask(task: Task): Promise<Event[]> {
+  async findAllByTask(task: Task): Promise<TaskEvent[]> {
     return this.eventRepository.findBy({task});
   }
 
-  async findById(id: number): Promise<Event> {
+  async findById(id: number): Promise<TaskEvent> {
     return this.eventRepository.findOneBy({id});
   }
 
-  async add(event: Event): Promise<Event> {
+  async add(event: TaskEvent): Promise<TaskEvent> {
     return this.eventRepository.save(event);
   }
 
-  async update(id: number, event: Event): Promise<UpdateResult> {
+  async update(id: number, event: TaskEvent): Promise<UpdateResult> {
     return this.eventRepository.update(id, event);
   }
 

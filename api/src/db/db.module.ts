@@ -4,6 +4,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from "../crud/users/user.entity";
 import { Operation } from "../crud/operations/operations.entity";
 import { DataSource } from "typeorm";
+import {Account} from "../crud/accounts/account.entity";
+import {Task} from "../crud/tasks/task.entity";
+import {Goal} from "../crud/goals/goal.entity";
+import {TaskEvent} from "../crud/events/event.entity";
+import {Category} from "../crud/categories/category.entity";
 
 @Module({
   imports: [
@@ -19,7 +24,12 @@ import { DataSource } from "typeorm";
         database: configService.get<string>('DB'),
         entities: [
           User,
-          Operation
+          Operation,
+          Account,
+          Task,
+          TaskEvent,
+          Goal,
+          Category
         ],
         synchronize: true,
       }),

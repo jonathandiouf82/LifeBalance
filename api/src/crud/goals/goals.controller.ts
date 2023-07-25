@@ -2,10 +2,11 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/
 import { GoalsService } from "../goals/goals.service";
 import { Goal } from "../goals/goal.entity";
 import { DeleteResult, UpdateResult } from "typeorm";
-import { Operation } from "../operations/operations.entity";
 import { User } from "../users/user.entity";
 import { UsersService } from "../users/users.service";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('goals')
 @Controller('/crud/goals')
 export class GoalsController {
 

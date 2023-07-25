@@ -1,8 +1,7 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Operation } from "../operations/operations.entity";
-import { Account } from "../accounts/account.entity";
+import {Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import { User } from "../users/user.entity";
 import { Goal } from "../goals/goal.entity";
+import {TaskEvent} from "../events/event.entity";
 
 @Entity()
 export class Task {
@@ -20,6 +19,9 @@ export class Task {
 
   @ManyToOne(() => Goal, (goal) => goal.tasks)
   goal: Goal;
+
+  @OneToOne(() => TaskEvent, (event) => event.task)
+  event: TaskEvent;
 
   @Column()
   due_date: Date;

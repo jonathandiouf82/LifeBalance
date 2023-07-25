@@ -2,34 +2,36 @@ import { Body, Controller, Delete, Get, Param, Post, Put, Query } from "@nestjs/
 import { OperationsService } from "./operations.service";
 import { Operation } from "./operations.entity";
 import { DeleteResult, UpdateResult } from "typeorm";
-import { User } from "../users/user.entity";
-import { UsersService } from "../users/users.service";
+import { Account } from "../accounts/account.entity";
+import {AccountsService} from "../accounts/accounts.service";
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('operations')
 @Controller('crud/operation')
 export class OperationsController {
 
   constructor(private operationsService: OperationsService,
-              private userService: UsersService) {}
+              private accountService: AccountsService) {}
 
-  @Get("/")
+  @Get("/getAll")
   findAll(): Promise<Operation[]> {
     return this.operationsService.findAll();
   }
 
-  @Get("/:user")
-  async findAllByUser(@Param() params: any): Promise<Operation[]> {
-    let user: User = await this.userService.findById(params.user)
-    return this.operationsService.findAllByUser(user);
+  @Get("/getByAcc/:account")
+  async findAllByAccount(@Param() params: any): Promise<Operation[]> {
+    let account: Account = await this.accountService.findById(params.account);
+    return this.operationsService.findAllByAccount(account);
   }
 
-  @Get("/:id")
+  @Get("/get/:id")
   findById(@Param() params: any): Promise<Operation> {
     return this.operationsService.findById(params.id);
   }
 
-  @Get("/get")
-  findOne(@Query('category') category: string): Promise<Operation[]> {
-    if(category != null) return this.operationsService.findAllByCategory(category);
+  @Get("/getByCat/:category")
+  findOne(@Param() params: any): Promise<Operation[]> {
+    if(params.category != null) return this.operationsService.findAllByCategory(params.category);
   }
 
   @Post("add")

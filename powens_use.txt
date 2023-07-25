@@ -1,0 +1,9 @@
+- Create a powens account
+- Create a organisation
+- Create a sandbox
+- Connect with the webview
+- Get a code at the redirection uri
+- Use that code to get the access token of the user created
+- Get the access token that needs to get recreated every 180 days for sec
+r82ksOGGr4X8S2PbZNMUFKsBrLceY9j8z5mAoU9QvkDekNXADS6PuWoGevE9sptAzIQs83lk4j/ZHQaGPvfX6hlYN25tXSck2dZgaQVL_1eoxf55eoJg5Jsf4wanrtfa
+- any routes Authorization: Bearer access_token

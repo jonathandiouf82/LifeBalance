@@ -1,5 +1,5 @@
 Integrer Chart.js
-CRUD API
 Auth
-Transponer CHATGPT to file
-Trouver designer
+how to stock the token
+give operations to the front
+calculate budget road

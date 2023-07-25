@@ -1,18 +1,15 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ImportDataModule } from './import_data/import_data.module';
 import { OperationsModule } from './crud/operations/operations.module';
 import { UsersModule } from './crud/users/users.module';
 import { ConfigModule } from "@nestjs/config";
 import { DataSource } from "typeorm";
 import { DbModule } from "./db/db.module";
 import { PowensService } from './services/powens/powens.service';
-import { PowensController } from './services/powens/powens.controller';
 import { PowensModule } from "./services/powens/powens.module";
 import { AccountsService } from './crud/accounts/accounts.service';
 import { AccountsController } from './crud/accounts/accounts.controller';
-import { AccountModule } from './account/account.module';
 import { AccountsModule } from './crud/accounts/accounts.module';
 import { CategoriesService } from './crud/categories/categories.service';
 import { CategoriesController } from './crud/categories/categories.controller';
@@ -30,19 +27,16 @@ import { EventsModule } from './crud/events/events.module';
 @Module({
   imports: [ConfigModule.forRoot(),
             DbModule,
-            ImportDataModule,
             OperationsModule,
             UsersModule,
-            ImportDataModule,
             PowensModule,
-            AccountModule,
             AccountsModule,
             CategoriesModule,
             GoalsModule,
             TasksModule,
             EventsModule],
-  providers: [AppService, AccountsService, CategoriesService, GoalsService, TasksService, EventsService],
-  controllers: [AppController, PowensController, AccountsController, CategoriesController, GoalsController, TasksController, EventsController],
+  providers: [AppService, AccountsService, CategoriesService, GoalsService, TasksService, EventsService, PowensService],
+  controllers: [AppController, AccountsController, CategoriesController, GoalsController, TasksController, EventsController],
 })
 export class AppModule {
   constructor(private dataSource: DataSource) {}
