@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import './App.css';
-import MyPieChart from "./components/Pie";
+import MyPieChart from "./components/operations/Pie";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <MyPieChart/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <Header/>
+        <Nav/>
+        <Operations/>
+        <Goals/>
+        <Accounts/>
+
+      <MyPieChart/>
     </div>
   );
 }
